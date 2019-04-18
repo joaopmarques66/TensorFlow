@@ -1,0 +1,49 @@
+{
+    "Records": [
+        {
+            "keywords": "bacalhau a bras, codfish a bras",
+            "limit": 2000,
+            "print_urls": true
+        },
+ 	{
+            "keywords": "feijoada",
+            "limit": 2000,
+            "print_urls": true
+        },
+	{
+            "keywords": "bacalhau gomes de sa, codfish gomes de sa",
+            "limit": 2000,
+            "print_urls": true
+        },
+	{
+            "keywords": "povo a lagareiro, octopus a lagareiro",
+            "limit": 2000,
+            "print_urls": true
+        },
+	{
+            "keywords": "francesinha",
+            "limit": 2000,
+            "print_urls": true
+        },
+	{
+            "keywords": "cozido a portuguesa",
+            "limit": 2000,
+            "print_urls": true
+        },
+	{
+            "keywords": "ameijoa",
+            "limit": 2000,
+            "print_urls": true
+        },
+	{
+            "keywords": "caldo verde",
+            "limit": 2000,
+            "print_urls": true
+        },
+	{
+            "keywords": "sardinha assada, grilled sardine",
+            "limit": 2000,
+            "print_urls": true
+        }
+    ]
+}
