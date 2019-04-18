@@ -2,3 +2,5 @@
 env/
 .vscode/
 TransferLearning/session/
+
+TransferLearning/export_model/

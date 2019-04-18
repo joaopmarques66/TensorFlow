@@ -1,0 +1,15 @@
+2019-04-18 21:59:56.395008: I tensorflow_serving/model_servers/server.cc:82] Building single TensorFlow model file config:  model_name: inception model_base_path: /home/joao/repos/TensorFlowTest/TransferLearning/export_model/
+2019-04-18 21:59:56.396055: I tensorflow_serving/model_servers/server_core.cc:461] Adding/updating models.
+2019-04-18 21:59:56.396084: I tensorflow_serving/model_servers/server_core.cc:558]  (Re-)adding model: inception
+2019-04-18 21:59:56.498704: I tensorflow_serving/core/basic_manager.cc:739] Successfully reserved resources to load servable {name: inception version: 1}
+2019-04-18 21:59:56.498743: I tensorflow_serving/core/loader_harness.cc:66] Approving load for servable version {name: inception version: 1}
+2019-04-18 21:59:56.498756: I tensorflow_serving/core/loader_harness.cc:74] Loading servable version {name: inception version: 1}
+2019-04-18 21:59:56.498779: I external/org_tensorflow/tensorflow/contrib/session_bundle/bundle_shim.cc:363] Attempting to load native SavedModelBundle in bundle-shim from: /home/joao/repos/TensorFlowTest/TransferLearning/export_model/1
+2019-04-18 21:59:56.498790: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/joao/repos/TensorFlowTest/TransferLearning/export_model/1
+2019-04-18 21:59:56.558321: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2019-04-18 21:59:56.649895: I external/org_tensorflow/tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2019-04-18 21:59:57.020550: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:182] Restoring SavedModel bundle.
+2019-04-18 21:59:57.795468: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:285] SavedModel load for tags { serve }; Status: success. Took 1296665 microseconds.
+2019-04-18 21:59:57.795540: I tensorflow_serving/servables/tensorflow/saved_model_warmup.cc:101] No warmup data file found at /home/joao/repos/TensorFlowTest/TransferLearning/export_model/1/assets.extra/tf_serving_warmup_requests
+2019-04-18 21:59:57.795681: I tensorflow_serving/core/loader_harness.cc:86] Successfully loaded servable version {name: inception version: 1}
+2019-04-18 21:59:57.811168: I tensorflow_serving/model_servers/server.cc:313] Running gRPC ModelServer at 0.0.0.0:9000 ...

@@ -56,6 +56,6 @@ model.fit((item for item in image_data), epochs=EPOCHS,
 with tf.keras.backend.get_session() as sess:
     tf.saved_model.simple_save(
         sess,
-        './export_model/{}'.format(VERSION),
+        './export_model/{}/'.format(VERSION),
         inputs={'input_image': model.input},
         outputs={t.name: t for t in model.outputs})
