@@ -19,8 +19,11 @@ IMAGE_SIZE = (299, 299)
 global original_labels
 original_labels = np.array([
   'apple_pie',
+  'chocolate_cake',
   'guacamole',
+  'hamburger',
   'pizza',
+  'spaghetti_bolognese',
   'tacos',
   'waffles'])
 
