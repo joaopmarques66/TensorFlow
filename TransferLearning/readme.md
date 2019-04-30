@@ -12,9 +12,5 @@
 
 ## Convert to TFLite
 ```
-tflite_convert \
-  --output_file=/tmp/model.tflite \
-  --graph_def_file=./export_model/saved_model.pb \
-  --input_arrays=input_image \
-  --output_arrays=MobilenetV1/Predictions/Reshape_1
+python tflite.py
 ```

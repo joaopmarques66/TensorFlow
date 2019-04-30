@@ -66,4 +66,5 @@ with tf.keras.backend.get_session() as sess:
         inputs={'input_image': model.input},
         outputs={t.name: t for t in model.outputs})
 
-print({t.name: t for t in model.outputs})
+#{'dense/Softmax:0': <tf.Tensor 'dense/Softmax:0' shape=(?, 11) dtype=float32>}
+#print({t.name: t for t in model.outputs})
