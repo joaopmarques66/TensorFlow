@@ -20,9 +20,12 @@ global original_labels
 original_labels = np.array([
   'apple_pie',
   'chocolate_cake',
+  'churros',
   'guacamole',
   'hamburger',
+  'pancakes',
   'pizza',
+  'risotto',
   'spaghetti_bolognese',
   'tacos',
   'waffles'])

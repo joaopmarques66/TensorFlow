@@ -11,6 +11,7 @@ caffeine==2.9.4
 certifi==2018.1.18
 chardet==3.0.4
 chrome-gnome-shell==0.0.0
+Click==7.0
 command-not-found==0.3
 cryptography==2.1.4
 cupshelpers==1.0
@@ -21,6 +22,8 @@ defusedxml==0.6.0
 distro-info===0.18ubuntu0.18.04.1
 entrypoints==0.3
 ewmh==0.1.5
+Flask==1.0.2
+Flask-API==1.1
 gast==0.2.2
 grpcio==1.19.0
 h5py==2.9.0
@@ -31,6 +34,7 @@ ipython==7.5.0
 ipython-genutils==0.2.0
 ipywidgets==7.4.2
 isort==4.3.17
+itsdangerous==1.1.0
 jedi==0.13.3
 Jinja2==2.10.1
 jsonschema==3.0.1
@@ -115,6 +119,7 @@ tensorflow==1.13.1
 tensorflow-estimator==1.13.0
 tensorflow-gpu==1.13.1
 tensorflow-hub==0.4.0
+tensorflow-serving-api==1.13.0
 termcolor==1.1.0
 terminado==0.8.2
 testpath==0.4.2
