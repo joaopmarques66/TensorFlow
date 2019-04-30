@@ -1,7 +1,5 @@
 from __future__ import absolute_import, division, print_function
 
-import matplotlib.pylab as plt
-
 import tensorflow as tf
 import tensorflow_hub as hub
 import tensorflow.keras.backend as K
@@ -37,7 +35,7 @@ for image_batch,label_batch in image_data:
   break
 
 #MODEL_NAME='{}-{}_epochs-numclasses_{}'.format('Inceptionv3', EPOCHS, image_data.batch_size)
-VERSION = 2
+VERSION = 3
 features_extractor_layer = layers.Lambda(feature_extractor, input_shape=IMAGE_SIZE+[3])
 features_extractor_layer.trainable = False
 
@@ -67,3 +65,5 @@ with tf.keras.backend.get_session() as sess:
         './export_model/{}/'.format(VERSION),
         inputs={'input_image': model.input},
         outputs={t.name: t for t in model.outputs})
+
+print({t.name: t for t in model.outputs})

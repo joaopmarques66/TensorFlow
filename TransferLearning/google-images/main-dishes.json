@@ -1,8 +1,8 @@
 {
     "Records": [
         {
-            "keywords": "churros",
-            "limit": 2000,
+            "keywords": "hamburger  -\"fries\"",
+            "limit": 500,
             "print_urls": true
         }
     ]
