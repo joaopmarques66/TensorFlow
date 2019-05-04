@@ -43,14 +43,20 @@ def process_image(image):
 @app.route("/predict", methods=['GET', 'POST'])
 def notes_list():
     if request.method != 'POST':
-         return 'Method not allowed'
+        response = {}
+        response["error"] = "Method not allowed"
+        return str(response)
 
     if 'file' not in request.files:
-        return 'No file part'
+        response = {}
+        response["error"] = "No file part"
+        return str(response)
 
     file = request.files['file']
     if file.filename == '':
-        return 'No selected file'
+        response = {}
+        response["error"] = "No selected file"
+        return str(response)
         
     image = PIL.Image.open(file)
     processed_image = process_image(image)
