@@ -68,9 +68,9 @@ def notes_list():
 
     argmax =  np.argmax(result_array, axis=-1)
     response = {}
-    response['class_index'] = str(argmax)
-    response['confidence'] = str(result_array[0][argmax])
-    response['result'] = str(original_labels[argmax])
+    response['class_index'] = str(argmax[0])
+    response['confidence'] = str(result_array[0][argmax][0])
+    response['result'] = str(original_labels[argmax][0])
     return str(response)
 
 
