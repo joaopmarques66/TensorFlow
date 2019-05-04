@@ -3,10 +3,12 @@ from flask_api import FlaskAPI, status, exceptions
 import tensorflow as tf
 import tensorflow_hub as hub
 import PIL
+from io import BytesIO
 from tensorflow.keras.preprocessing import image as Image
 import numpy as np
 import tensorflow.keras.backend as K
 import os
+import base64
 from grpc.beta import implementations
 from tensorflow_serving.apis import predict_pb2
 from tensorflow_serving.apis import prediction_service_pb2
@@ -40,19 +42,20 @@ def process_image(image):
     return image
 
 
-@app.route("/predict", methods=['GET', 'POST'])
-def notes_list():
+@app.route("/predict/image", methods=['GET', 'POST'])
+def predictImage():
     if request.method != 'POST':
         response = {}
         response["error"] = "Method not allowed"
         return str(response)
-
-    if 'file' not in request.data:
+    
+    if 'file' not in request.files:
         response = {}
         response["error"] = "No file part "
         return str(response)
 
-    file = request.data['file']
+    file = request.files['file']
+
     if file.filename == '':
         response = {}
         response["error"] = "No selected file"
@@ -79,6 +82,46 @@ def notes_list():
     response['result'] = str(original_labels[argmax][0])
     return str(response)
 
+
+@app.route("/predict", methods=['GET', 'POST'])
+def predictImageBase64():
+    try:
+        if request.method != 'POST':
+            response = {}
+            response["error"] = "Method not allowed"
+            return str(response)
+        
+        if 'file' not in request.data:
+            response = {}
+            response["error"] = "No file part "
+            return str(response)
+        
+        data = request.data['file']
+        
+        image = PIL.Image.open(BytesIO(base64.b64decode(data)))
+        processed_image = process_image(image)
+        
+        channel = implementations.insecure_channel('localhost',9000) 
+        stub = prediction_service_pb2.beta_create_PredictionService_stub(channel)
+        
+        _request = predict_pb2.PredictRequest()
+        _request.model_spec.name = 'inception'
+        _request.inputs['input_image'].CopyFrom(
+            tf.contrib.util.make_tensor_proto(processed_image, shape=[1, 299, 299, 3]))
+
+        result = stub.Predict(_request, 60.0) 
+        result_array = tensor_util.MakeNdarray(result.outputs['dense/Softmax:0'])
+
+        argmax =  np.argmax(result_array, axis=-1)
+        response = {}
+        response['class_index'] = str(argmax[0])
+        response['confidence'] = str(result_array[0][argmax][0])
+        response['result'] = str(original_labels[argmax][0])
+        return str(response)
+    except Exception as e:
+        response = {}
+        response["error"] = str(e)
+        return response
 
 
 if __name__ == "__main__":
