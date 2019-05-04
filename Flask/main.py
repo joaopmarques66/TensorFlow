@@ -47,12 +47,12 @@ def notes_list():
         response["error"] = "Method not allowed"
         return str(response)
 
-    if 'file' not in request.files:
+    if 'file' not in request.data:
         response = {}
-        response["error"] = "No file part " + str(request.args)
+        response["error"] = "No file part "
         return str(response)
 
-    file = request.files['file']
+    file = request.data['file']
     if file.filename == '':
         response = {}
         response["error"] = "No selected file"
