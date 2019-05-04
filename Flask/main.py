@@ -49,7 +49,7 @@ def notes_list():
 
     if 'file' not in request.files:
         response = {}
-        response["error"] = "No file part " + str(request)
+        response["error"] = "No file part " + str(request.args)
         return str(response)
 
     file = request.files['file']
