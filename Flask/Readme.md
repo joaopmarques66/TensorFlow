@@ -94,10 +94,12 @@ Description="TensorFlow serve model"
 After=network.target
 
 [Service]
-ExecStart=tensorflow_model_server --port=9000 --model_name=inception --model_base_path=/var/ww/TensorFlow/TransferLearning/export_model/
+ExecStart=/usr/bin/tensorflow_model_server --port=9000 --model_name=inception --model_base_path=/var/ww/TensorFlow/TransferLearning/export_model/
 
 [Install]
 WantedBy=multi-user.target
 ```
 
 `sudo systemctl daemon-reload`
+`sudo systemctl enable tensorFlowServe`
+`sudo systemctl enable foodId`
