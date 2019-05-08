@@ -106,6 +106,7 @@ def predictImageBase64():
         
         _request = predict_pb2.PredictRequest()
         _request.model_spec.name = 'inception'
+        _request.model_spec.version.value = 2
         _request.inputs['input_image'].CopyFrom(
             tf.contrib.util.make_tensor_proto(processed_image, shape=[1, 299, 299, 3]))
 

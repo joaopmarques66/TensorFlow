@@ -12,17 +12,17 @@ def feature_extractor(x):
   return feature_extractor_module(x)
 
 
-EPOCHS=3
-DATA_ROOT='/home/joao/repos/FoodDataset/images'
+EPOCHS=2
+DATA_ROOT='/home/joao/repos/ssc/FoodDataset/images'
 HUB_URL = "https://tfhub.dev/google/imagenet/inception_v3/feature_vector/1"
 IMAGE_SIZE = hub.get_expected_image_size(hub.Module(HUB_URL))
 
 data_gen_args = dict(featurewise_center=True,
                      featurewise_std_normalization=True,
-                     rotation_range=90,
-                     width_shift_range=0.1,
-                     height_shift_range=0.1,
-                     zoom_range=0.2,
+                     rotation_range=180,
+                     width_shift_range=0.3,
+                     height_shift_range=0.3,
+                     zoom_range=0.5,
                      rescale=1/255)
 
 image_generator = tf.keras.preprocessing.image.ImageDataGenerator(**data_gen_args)
