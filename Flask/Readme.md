@@ -1,7 +1,7 @@
 # Readme
 
 # DNS
-` kookapp.northeurope.cloudapp.azure.com `
+` kookapp.ml `
 
 
 # Server config
@@ -19,10 +19,11 @@
 10. `pip install Flask`
 11. `pip install Flask-API`
 12. `pip install tensorflow`
-`pip install Pillow`
-`pip install tensorflow-serving-api`
-`sudo apt-get install build-essential python python-dev`
-`apt-get install build-essential python3-dev`
+13. `pip install tensorflow_hub`
+14. `pip install Pillow`
+15. `pip install tensorflow-serving-api`
+16. `sudo apt-get install build-essential python python-dev`
+17. `sudo apt-get install build-essential python3-dev`
 
 
 `pip install uwsgi`
@@ -31,7 +32,7 @@
 ```
 server {
     listen      80;
-    server_name http://kookapp.northeurope.cloudapp.azure.com/;
+    server_name http://kookapp.ml/;
     charset     utf-8;
     client_max_body_size 75M;
 
@@ -94,7 +95,7 @@ Description="TensorFlow serve model"
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/tensorflow_model_server --port=9000 --model_name=inception --model_base_path=/var/ww/TensorFlow/TransferLearning/export_model/
+ExecStart=/usr/bin/tensorflow_model_server --port=9000 --model_name=inception --model_base_path=/var/www/TensorFlow/TransferLearning/export_model/
 
 [Install]
 WantedBy=multi-user.target
