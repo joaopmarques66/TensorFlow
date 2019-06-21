@@ -31,7 +31,7 @@
 
 ```
 server {
-    listen      80;
+    listen      3000;
     server_name http://kookapp.ml/;
     charset     utf-8;
     client_max_body_size 75M;
