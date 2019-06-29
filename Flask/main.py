@@ -80,7 +80,7 @@ def predictImage():
     response['class_index'] = str(argmax[0])
     response['confidence'] = str(result_array[0][argmax][0])
     response['result'] = str(original_labels[argmax][0])
-    return str(response)
+    return str(response).replace("'",'"')
 
 
 @app.route("/predict", methods=['GET', 'POST'])
@@ -118,7 +118,7 @@ def predictImageBase64():
         response['class_index'] = str(argmax[0])
         response['confidence'] = str(result_array[0][argmax][0])
         response['result'] = str(original_labels[argmax][0])
-        return str(response)
+        return str(response).replace("'",'"')
     except Exception as e:
         response = {}
         response["error"] = str(e)
